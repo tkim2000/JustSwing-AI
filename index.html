@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustSwing AI - Baseball Swing Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #cfb991;
+            --gold-light: #e6d7b8;
+            --gold-dark: #b89f73;
+            --black-primary: #000000;
+            --black-secondary: #1a1a1a;
+            --black-tertiary: #2d2d2d;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black-primary);
+            color: var(--gold-primary);
+        }
+        
+        .font-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .bg-slate-900 { background-color: var(--black-secondary) !important; }
+        .bg-slate-800 { background-color: var(--black-tertiary) !important; }
+        .bg-slate-700 { background-color: var(--black-tertiary) !important; }
+        .bg-slate-600 { background-color: var(--black-tertiary) !important; }
+        .bg-slate-500 { background-color: var(--black-tertiary) !important; }
+        .text-slate-200 { color: var(--gold-primary) !important; }
+        .text-slate-400 { color: var(--gold-dark) !important; }
+        .text-slate-500 { color: var(--gold-dark) !important; }
+        .text-slate-600 { color: var(--gold-dark) !important; }
+        .text-slate-700 { color: var(--gold-dark) !important; }
+        .text-white { color: var(--gold-light) !important; }
+        .text-emerald-400 { color: var(--gold-primary) !important; }
+        .text-emerald-500 { color: var(--gold-primary) !important; }
+        .text-emerald-600 { color: var(--gold-primary) !important; }
+        .bg-emerald-500 { background-color: var(--gold-primary) !important; }
+        .bg-emerald-600 { background-color: var(--gold-primary) !important; }
+        .hover\:bg-emerald-500:hover { background-color: var(--gold-primary) !important; }
+        .hover\:bg-emerald-600:hover { background-color: var(--gold-primary) !important; }
+        .hover\:text-emerald-400:hover { color: var(--gold-primary) !important; }
+        .border-emerald-400 { border-color: var(--gold-primary) !important; }
+        .border-emerald-500 { border-color: var(--gold-primary) !important; }
+        .border-slate-800 { border-color: var(--black-tertiary) !important; }
+        .border-slate-700 { border-color: var(--black-tertiary) !important; }
+        .border-slate-600 { border-color: var(--black-tertiary) !important; }
+        .hover\:text-white:hover { color: var(--gold-light) !important; }
+        .hover\:text-slate-300:hover { color: var(--gold-light) !important; }
+        .hover\:text-slate-400:hover { color: var(--gold-primary) !important; }
+        .hover\:bg-slate-700:hover { background-color: var(--black-tertiary) !important; }
+        .hover\:bg-slate-800:hover { background-color: var(--black-tertiary) !important; }
+        
+        /* Additional color overrides */
+        .bg-red-500 { background-color: #dc2626 !important; }
+        .bg-red-600 { background-color: #dc2626 !important; }
+        .text-red-400 { color: #f87171 !important; }
+        .text-red-500 { color: #ef4444 !important; }
+        .border-red-500 { border-color: #ef4444 !important; }
+        .hover\:bg-red-500:hover { background-color: #dc2626 !important; }
+        
+        /* Chart colors */
+        .recharts-wrapper { color: var(--gold-primary) !important; }
+        .recharts-legend-wrapper { color: var(--gold-primary) !important; }
+        .recharts-tooltip-wrapper { color: var(--black-primary) !important; }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--black-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+        
+        /* Force pure black backgrounds */
+        .bg-slate-900\/80 { background-color: rgba(0, 0, 0, 0.8) !important; }
+        .bg-slate-900\/90 { background-color: rgba(0, 0, 0, 0.9) !important; }
+        .bg-slate-900\/60 { background-color: rgba(0, 0, 0, 0.6) !important; }
+        .bg-slate-900\/50 { background-color: rgba(0, 0, 0, 0.5) !important; }
+        .bg-slate-900\/40 { background-color: rgba(0, 0, 0, 0.4) !important; }
+        .bg-slate-800\/50 { background-color: rgba(45, 45, 45, 0.5) !important; }
+        .bg-slate-800\/40 { background-color: rgba(45, 45, 45, 0.4) !important; }
+        
+        /* Remove any blue tints from backdrop filters */
+        header { background-color: rgba(0, 0, 0, 0.8) !important; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "recharts": "https://esm.sh/recharts@^3.7.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "SwingGuard AI - Baseball Analysis",
+  "description": "Professional-grade baseball swing analysis using Gemini AI. Upload your swing to get detailed feedback on stance, mechanics, and estimated performance metrics.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
