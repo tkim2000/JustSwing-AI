@@ -4,13 +4,6 @@
 
 # JustSwing AI - Baseball Swing Analysis
 
-This contains everything you need to run JustSwing AI locally.
-
-View your app in AI Studio: https://ai.studio/apps/drive/16Pe6K1ZrLui3IvThaS61uQtlBcYIN_0g
-
-## Run Locally
-
-**Prerequisites:**  Node.js
 
 
 1. Install dependencies:
