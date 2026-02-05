@@ -76,7 +76,7 @@ export async function analyzeSwingVideo(videoBase64: string, mimeType: string): 
       contents: {
         parts: [
           { inlineData: { data: videoBase64, mimeType } },
-          { text: "Act as an MLB coach. Analyze this baseball swing video frame-by-frame. Provide specific timestamps (0:00) for the start of each phase (Stance, Load, Contact/Path, Follow-through). Be critical about mechanics and output in JSON format." },
+          { text: "Act as an MLB coach. Analyze this baseball swing video frame-by-frame. Provide specific timestamps (0:00) for the start of each phase (Stance, Load, Contact/Path, Follow-through). Be critical about mechanics and output in JSON format. IMPORTANT: All scores must be on a scale of 0-100, not 0-10." },
         ],
       },
       config: {
@@ -85,7 +85,21 @@ export async function analyzeSwingVideo(videoBase64: string, mimeType: string): 
       },
     });
     if (!response.text) throw new Error("No analysis received.");
-    return JSON.parse(response.text.trim()) as SwingReport;
+    const report = JSON.parse(response.text.trim()) as SwingReport;
+    
+    // Normalize scores to ensure they're on 0-100 scale
+    // If AI returns scores out of 10, multiply by 10
+    const normalizeScore = (score: number): number => {
+      return score <= 10 ? score * 10 : score;
+    };
+    
+    report.overallScore = normalizeScore(report.overallScore);
+    Object.keys(report.metrics).forEach(phase => {
+      report.metrics[phase as keyof typeof report.metrics].score = 
+        normalizeScore(report.metrics[phase as keyof typeof report.metrics].score);
+    });
+    
+    return report;
   } catch (error) {
     console.error("Gemini Analysis Error:", error);
     throw error;
